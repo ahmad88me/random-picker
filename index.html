@@ -1,0 +1,49 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+    
+<body>
+    <div class="alert alert-warning" role="alert">
+  A simple random picker. It will pick from each line a single item. items should be separated by commas and each list should be in a new line
+</div>
+<textarea id="list" rows="4" class="form-control">
+I,You,They
+Like,Hate
+Frogs,Cookies,Cakes</textarea><br>
+    <button type="button" class="btn btn-warning" onclick="pick()">Pick Random Combination</button><br><br>
+
+    <p id="output"></p>
+    
+<script>
+
+    function pick(){
+        //alert("hello");
+        var a = document.getElementById('list').value;
+        console.log(a);
+        var lists = a.split('\n')
+        console.log("lists")
+        console.log(lists)
+        //choices = []
+        choices = ""
+        var j;
+        var inner;
+        for(var i=0;i<lists.length;i++){
+            inner = lists[i].split(',')
+            j = Math.floor(Math.random() * inner.length);
+            console.log(j)
+            //choices.push(inner[j])
+            choices += " "+inner[j]
+        }
+        document.getElementById("output").innerText = choices
+        //console.log(choices);
+        
+        //alert(choices);
+//        getElementById('demo').innerHTML 
+    }
+        
+</script>
+    </body>
+</html>
